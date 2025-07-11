@@ -1,6 +1,16 @@
+import NavBar from "../components/NavBar";
+
 const Homepage = () => {
     return (
-        <h1>Da Shop</h1>
+        <>
+            <header>
+                <h1>Da Shop</h1>
+            </header>
+            <nav>
+                <NavBar />
+            </nav>
+        </>
+        
     )
 }
 
