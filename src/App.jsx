@@ -1,9 +1,17 @@
 import { useState } from 'react'
 import './App.css'
+import NavBar from './assets/components/NavBar'
+import { Outlet } from 'react-router'
 
 function App() {
-  const [itemCounter, setItemCounter] = useState(0);
   
+  return (
+    <>
+    <NavBar />
+      <Outlet />
+    </>
+    
+  )
 }
 
 export default App
