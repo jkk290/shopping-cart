@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 
-const NavBar = () => {
+const NavBar = (itemCounter) => {
     return (
         <section>
             <div>
@@ -10,7 +10,7 @@ const NavBar = () => {
                 <Link to='shop'>Shop</Link>
             </div>
             <div>
-                10{/* <ItemCounter /> */}
+                {itemCounter > 0 ? itemCounter : null}
                 <button>Cart</button>
             </div>
             
