@@ -1,6 +1,9 @@
 pages
-    homepage
-    shop page
+    App - controls state and import navbar
+        outlet children
+            homepage
+            shop
+            cart
 components
     navbar
         home button
