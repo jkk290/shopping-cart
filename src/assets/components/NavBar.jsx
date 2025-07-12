@@ -11,7 +11,7 @@ const NavBar = (itemCounter) => {
             </div>
             <div>
                 {itemCounter > 0 ? itemCounter : null}
-                <button>Cart</button>
+                <Link to='cart'>Cart</Link>
             </div>
             
         </section>
