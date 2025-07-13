@@ -8,19 +8,21 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
-    setCartItems((prevItems) => {
-      [...prevItems, product]
-    });
+    setCartItems((prevItems) => [...prevItems, product]);
   }
 
   const contextValue = {
     items: cartItems,
     addItem: addToCart,
   };
+
+  const totalItemsCount = cartItems.reduce((sum, item) => {
+    return sum + item.qty;
+  }, 0);
   
   return (
     <cartContext.Provider value={contextValue}>
-      <NavBar />
+      <NavBar itemCount={totalItemsCount}/>
         <Outlet />
     </cartContext.Provider>
     

@@ -1,10 +1,6 @@
 import { Link } from 'react-router'
-import { useContext } from 'react';
-import { cartContext } from '../cartContext';
 
-const NavBar = () => {
-    const {items} = useContext(cartContext);
-    const itemCount = items.length;
+const NavBar = ({ itemCount }) => {
 
     return (
         <section>
@@ -15,7 +11,7 @@ const NavBar = () => {
                 <Link to='shop'>Shop</Link>
             </div>
             <div>
-                {itemCount > 0 ? <span>{itemCount} </span> : null}
+                { itemCount > 0 ? <span>{itemCount} </span> : null }
                 <Link to='cart'>Cart</Link>
             </div>
             
