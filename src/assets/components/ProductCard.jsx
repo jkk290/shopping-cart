@@ -1,7 +1,7 @@
 import { useState, useContext } from "react"
 import { cartContext } from "../cartContext";
 
-const ProductCard = ({ title, image, price }) => {
+const ProductCard = ({ id, title, image, price }) => {
     const [qty, setQty] = useState(1);
     const { addItem } = useContext(cartContext);
 
@@ -22,6 +22,7 @@ const ProductCard = ({ title, image, price }) => {
 
     const handleSubmit = () => {
         const product = {
+            id: id,
             title: title,
             price: price,
             qty: qty,

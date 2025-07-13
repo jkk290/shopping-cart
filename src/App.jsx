@@ -8,7 +8,21 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
-    setCartItems((prevItems) => [...prevItems, product]);
+    setCartItems((prevItems) => {
+      const prevIndex = prevItems.findIndex((item) => item.id === product.id)
+
+      if (prevIndex === -1) {
+        return [...prevItems, product]
+      } else {
+        const newQty = prevItems[prevIndex].qty + product.qty
+        return prevItems.map((item) => { 
+          if (item.id === product.id) {
+            return {...item, qty: newQty}
+          }
+          return item;
+        })
+      }
+    });
   }
 
   const contextValue = {

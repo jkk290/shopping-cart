@@ -30,7 +30,7 @@ const Shop = () => {
                 <div className='product-grid'>
                     {loading ? <h2>Loading...</h2> : null}
                     {products.map((product) => {
-                        return <ProductCard key={product.id} title={product.title} image={product.image} price={product.price}/>
+                        return <ProductCard key={product.id} id={product.id} title={product.title} image={product.image} price={product.price}/>
                     })}
                 </div>
             </main>

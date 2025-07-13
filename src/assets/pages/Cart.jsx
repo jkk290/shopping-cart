@@ -5,7 +5,10 @@ const Cart = () => {
     const { items } = useContext(cartContext);
 
     const total = items.reduce((sum, item) => {
-        return sum + (item.price * item.qty)
+        const initialTotal = sum + (item.price * item.qty)
+        const roundedString = initialTotal.toFixed(2)
+        const roundedTotal = parseFloat(roundedString)
+        return roundedTotal
     }, 0.0)
 
     return (
