@@ -27,9 +27,7 @@ const ProductCard = ({ title, image, price }) => {
             qty: qty,
             img: image
         };
-
         addItem(product);
-        console.log('Adding item ', product)
     };
 
     const handleChange = (e) => {
