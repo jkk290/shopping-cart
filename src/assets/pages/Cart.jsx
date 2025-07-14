@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { cartContext } from "../cartContext";
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
     const { items } = useContext(cartContext);
@@ -18,11 +19,8 @@ const Cart = () => {
                 <ul>
                     {items.map((item) => {
                         return (
-                            <li key={item.title}>
-                                <img src={item.img} alt={item.title} />
-                                <p>{item.title}</p>
-                                <p>Qty: {item.qty}</p>
-                                <p>Price: ${item.price}</p>
+                            <li key={item.id}>
+                                <CartItem item={item}/>
                             </li>
                         )
                     })}
