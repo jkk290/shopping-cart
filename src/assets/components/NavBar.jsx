@@ -1,21 +1,16 @@
-import { Link } from 'react-router'
+import { Link } from 'react-router';
+import * as styles from './navbar.module.css';
 
 const NavBar = ({ itemCount }) => {
 
     return (
-        <section>
-            <div>
-                <Link to='/'>Home</Link>
-            </div>
-            <div>
-                <Link to='shop'>Shop</Link>
-            </div>
-            <div>
-                { itemCount > 0 ? <span>{itemCount} </span> : null }
-                <Link to='cart'>Cart</Link>
-            </div>
-            
-        </section>
+        <nav>
+            <ul>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='shop'>Shop</Link></li>
+                <li><Link to='cart'>Cart</Link> { itemCount > 0 ? <span> {itemCount}</span> : null } </li>
+            </ul>
+        </nav>
     )
 
 }

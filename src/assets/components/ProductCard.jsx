@@ -1,5 +1,6 @@
 import { useState, useContext } from "react"
-import { cartContext } from "../cartContext";
+import { cartContext } from "../cartContext"
+import * as styles from './productCard.module.css'
 
 const ProductCard = ({ id, title, image, price }) => {
     const [qty, setQty] = useState(1);
@@ -41,19 +42,27 @@ const ProductCard = ({ id, title, image, price }) => {
     }
 
     return (
-        <div className='product-card'>
-            <img src={image} alt={title} />
-            <h3>{title}</h3>
-            <p>Price: ${price}</p>
-            <button onClick={() => increaseQty()}>+</button>
-            <label>Quantity </label>
-            <input 
-                type="number" 
-                value={qty}
-                onChange={(e) => handleChange(e)} 
-            />
-            <button onClick={() => decreaseQty()}>-</button>
-            <button onClick={() => handleSubmit()}>Add to cart</button>
+        <div className={styles.productCard}>
+                <img src={image} alt={title} className={styles.productCardImg}/>
+            <div className={styles.mainContainer}>
+                <div className={styles.info}>
+                    <h3>{title}</h3>
+                    <p>Price: ${price}</p>
+                </div>
+            </div>
+            <div className={styles.qty}>
+                <label>Quantity:  
+                <input
+                    name='quantity' 
+                    type='number' 
+                    value={qty}
+                    onChange={(e) => handleChange(e)} 
+                />
+                </label>
+                <button onClick={() => increaseQty()} className={styles.qtyButton}>+</button>
+                <button onClick={() => decreaseQty()} className={styles.qtyButton}>-</button>
+            </div>
+            <button onClick={() => handleSubmit()} className={styles.addButton}>Add to cart</button>
         </div>
     )   
 }

@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { cartContext } from "../cartContext";
+import * as styles from './cartItem.module.css'
 
 const CartItem = ({ item }) => {
     const [qtyEdit, setQtyEdit] = useState(item.qty);
@@ -34,24 +35,29 @@ const CartItem = ({ item }) => {
     }
 
     return (
-        <>
-            <img src={item.img} alt={item.title} />
-            <p>{item.title}</p>
-            {
+        <div className={styles.cartItemContainer}>
+            <img src={item.img} alt={item.title} className={styles.cartItemImg}/>
+            <div className={styles.info}>
+                <p className={styles.title}>{item.title}</p>
+                <p className={styles.price}>Price: ${item.price}</p>
+            </div>
+                {
                 !canEdit ? 
-                <p>Qty: {item.qty} <button onClick={() => handleEdit()}>edit</button></p> : 
+                <div className={styles.qtyContainer}><p className={styles.qty}>Qty: {item.qty}</p> <button onClick={() => handleEdit()} className={styles.editButton}>Edit</button></div> : 
                 <>
-                    <input 
-                    type="number" 
-                    value={qtyEdit} 
-                    onChange={(e) => handleChange(e)}
-                    />
-                    <button onClick={() => handleUpdate(item.id, qtyEdit)}>Update</button>                
+                    <label className={styles.qty}>Qty: 
+                        <input 
+                            type="number" 
+                            name='quantity' 
+                            value={qtyEdit} 
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </label>
+                    <button onClick={() => handleUpdate(item.id, qtyEdit)} className={styles.updateButton}>Update</button>                
                 </>
-            }
-            <p>Price: ${item.price}</p>
-            <button onClick={() => handleRemove(item.id)}>Remove from cart</button>
-        </>
+                }
+            <button onClick={() => handleRemove(item.id)} className={styles.removeButton}>Remove</button>
+        </div>
         
     )
 }

@@ -1,6 +1,7 @@
-import { useContext } from "react";
-import { cartContext } from "../cartContext";
-import CartItem from "../components/CartItem";
+import { useContext } from "react"
+import { cartContext } from "../cartContext"
+import CartItem from "../components/CartItem"
+import * as styles from './cart.module.css'
 
 const Cart = () => {
     const { items } = useContext(cartContext);
@@ -16,7 +17,7 @@ const Cart = () => {
         <section>
             <h1>Cart</h1>
             <div>
-                <ul>
+                <ul className={styles.cartList}>
                     {items.map((item) => {
                         return (
                             <li key={item.id}>

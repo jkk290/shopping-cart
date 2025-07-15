@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import * as styles from './App.module.css';
 import NavBar from './assets/components/NavBar'
 import { Outlet } from 'react-router'
 import { cartContext } from './assets/cartContext'
@@ -60,8 +60,14 @@ function App() {
   
   return (
     <cartContext.Provider value={contextValue}>
-      <NavBar itemCount={totalItemsCount}/>
+      <header>
+        <NavBar itemCount={totalItemsCount}/>
+      </header>
+      <main>
         <Outlet />
+      </main>
+         
+      
     </cartContext.Provider>
     
   )
