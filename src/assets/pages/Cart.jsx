@@ -14,7 +14,7 @@ const Cart = () => {
     }, 0.0)
 
     return (
-        <section>
+        <section className={styles.cartContainer}>
             <h1>Cart</h1>
             <div>
                 <ul className={styles.cartList}>

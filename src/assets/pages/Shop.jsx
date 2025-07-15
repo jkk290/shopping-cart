@@ -23,18 +23,15 @@ const Shop = () => {
     }, []);
 
     return (
-        <>                
-            <section>
-                <h1>Da best items for sale!</h1>
-                <div className={styles.productGrid}>
-                    {loading ? <h2 className={styles.loading}>Loading...</h2> : null}
-                    {products.map((product) => {
-                        return <ProductCard key={product.id} id={product.id} title={product.title} image={product.image} price={product.price}/>
-                    })}
-                </div>
-            </section>
-        </>
-        
+        <section className={styles.shopContainer}>
+            <h1 className={styles.title}>Da best items for sale!</h1>
+            <div className={styles.productGrid}>
+                {loading ? <h2 className={styles.loading}>Loading...</h2> : null}
+                {products.map((product) => {
+                    return <ProductCard key={product.id} id={product.id} title={product.title} image={product.image} price={product.price}/>
+                })}
+            </div>
+        </section>
     )
 }
 
