@@ -1,4 +1,4 @@
-ul {
+.navList {
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
@@ -7,7 +7,7 @@ ul {
     padding: 30px;
 }
 
-li {
+.navItem {
     font-size: 2rem;
     color: white;
     margin: 5px;
